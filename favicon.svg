@@ -1,0 +1,12 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="favicon-title">
+  <title id="favicon-title">KL Portfolio Icon</title>
+
+  <rect width="64" height="64" rx="14" fill="#0b1120"></rect>
+
+  <rect x="1" y="1" width="62" height="62" rx="13" fill="none" stroke="#334155" stroke-width="2"></rect>
+
+  <path d="M15 14h7v16l14-16h9L31 30l15 20h-9L26 35l-4 5v10h-7z" fill="#f8fafc"></path>
+
+  <circle cx="49" cy="49" r="4" fill="#38bdf8"></circle>
+</svg>
