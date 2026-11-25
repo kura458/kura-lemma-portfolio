@@ -1,28 +1,33 @@
 # Kura Lemma | Developer Portfolio
 
-A personal portfolio presenting my web-development journey, selected projects, skills, and interests in software engineering.
+Live website: **[https://kura-lemma-portfolio.vercel.app](https://kura-lemma-portfolio.vercel.app)**
 
-The site is a lightweight static website built with semantic HTML5 and CSS3. It can be opened directly in a browser and is structured for static hosting.
+A personal portfolio presenting my software engineering journey, selected academic and personal projects, technologies, and contact links.
 
-## Website features
+## Website
 
-- Responsive navigation for desktop, tablet, and mobile
-- Skip-to-content link and visible keyboard focus states
-- Reduced-motion support
-- Hero, projects, about, and contact sections
-- Featured project cards linking directly to their project folders
-- Dark theme with blue accents
-- SEO description and social-sharing metadata
+This is a lightweight static website built with semantic HTML5 and CSS3. It is deployed on Vercel and connected to the GitHub repository. Changes pushed to the default `main` branch trigger Vercel deployments.
+
+## Features
+
+- Responsive dark navy and blue design
+- Mobile navigation menu with keyboard support
+- Hero, selected projects, about, skills, and contact sections
+- Eight project cards linking to their actual GitHub repositories or project folders
+- Contact links for email, LinkedIn, Telegram, and GitHub
+- Skip-to-content link, visible keyboard focus, and reduced-motion support
+- Search-engine description, canonical URL, Open Graph and Twitter metadata
+- Person structured data for search engines
 - Custom SVG favicon
-- No JavaScript framework or build step required
+- No framework, package manager, or build step required
 
 ## Technology
 
 - HTML5
-- CSS3, Flexbox, and CSS Grid
-- CSS media queries and custom properties
-- SVG
-- Git and GitHub
+- CSS3, Flexbox, CSS Grid, and media queries
+- Small vanilla JavaScript enhancement for closing the mobile menu after navigation
+- JSON-LD structured data
+- Git, GitHub, and Vercel
 
 ## Project files
 
@@ -37,25 +42,16 @@ kura-lemma-portfolio/
 
 ## Featured projects
 
-### Book Inventory
+- [Book Inventory](https://github.com/kura458/Web_Design_practice_workshop_-lab/tree/main/Book_Inventory)
+- [SoundWave Product Landing Page](https://github.com/kura458/Web_Design_practice_workshop_-lab/tree/main/SoundWave_Landing_Page)
+- [JobSphere](https://github.com/kura458/Jobsphere)
+- [ZayRide Passenger UI/UX Redesign](https://github.com/kura458/ZayRide-UX-Redesign)
+- [Smartwatch Step Counter — Model-Based AI](https://github.com/kura458/Model-based-AI)
+- [AI Search Algorithm Implementations](https://github.com/kura458/AI-Search-Algorithm-Implementations)
+- [JavaScript Learning](https://github.com/kura458/javaScript_Learning)
+- [Web Design Practice](https://github.com/kura458/Web_Design_practice_workshop_-lab)
 
-A responsive book inventory table showing book details, reading statuses, and visual ratings.
-
-[View the Book Inventory project files](https://github.com/kura458/Web_Design_practice_workshop_-lab/tree/main/Book_Inventory)
-
-### SoundWave Product Landing Page
-
-A responsive fictional wireless-headphones product page with feature cards, a demonstration video, pricing plans, and an email subscription form.
-
-[View the SoundWave project files](https://github.com/kura458/Web_Design_practice_workshop_-lab/tree/main/SoundWave_Landing_Page)
-
-### Web Design Practice
-
-A collection of web-development exercises focused on semantic markup, styling, responsive layouts, and accessibility.
-
-[Explore the web-design practice repository](https://github.com/kura458/Web_Design_practice_workshop_-lab)
-
-More projects and ongoing work are available on [my GitHub profile](https://github.com/kura458).
+See [all public repositories](https://github.com/kura458?tab=repositories) for more work.
 
 ## Run locally
 
@@ -63,33 +59,24 @@ More projects and ongoing work are available on [my GitHub profile](https://gith
 
    ```bash
    git clone https://github.com/kura458/kura-lemma-portfolio.git
+   cd kura-lemma-portfolio
    ```
 
-2. Open the project folder.
-3. Open `index.html` in a web browser.
-
-Alternatively, open the folder in Visual Studio Code and use the Live Server extension for local preview with automatic refresh.
+2. Open `index.html` in a browser, or use the Live Server extension in Visual Studio Code.
 
 No Node.js installation, package manager, or build command is required.
 
 ## Deploy to Vercel
 
-This is a static HTML/CSS project and does not require a framework build.
+The Vercel project is configured for static hosting:
 
-1. Sign in to [Vercel](https://vercel.com/).
-2. Import the `kura458/kura-lemma-portfolio` GitHub repository.
-3. Select **Other** as the framework preset.
-4. Leave the build command and install command empty.
-5. Use the repository root as the output directory (or the Vercel default for static files).
-6. Deploy and test the generated URL.
+- Framework preset: **Other**
+- Root directory: repository root
+- Build command: empty
+- Install command: empty
+- Output directory: repository root / default static output
 
-A Vercel deployment is not claimed here; add the live URL after a successful deployment.
-
-## Accessibility and metadata
-
-The page includes semantic landmarks, a skip link, keyboard-visible focus indicators, responsive layouts, and reduced-motion support. The HTML also includes a page title, description, theme color, and Open Graph/Twitter metadata.
-
-After deployment, update canonical and social-sharing URLs with the real production address and add a publicly accessible preview image if desired.
+Push changes to the connected `main` branch. Vercel should automatically create a deployment. Check the deployment status in the Vercel dashboard before sharing a change as live.
 
 ## Author
 
@@ -97,8 +84,9 @@ After deployment, update canonical and social-sharing URLs with the real product
 Software Engineering Student at Debre Berhan University (DBU).
 
 - GitHub: [@kura458](https://github.com/kura458)
-- Portfolio source: [kura-lemma-portfolio](https://github.com/kura458/kura-lemma-portfolio)
+- LinkedIn: [Kura Lemma](https://www.linkedin.com/in/kura-lemma/)
+- Email: [kuralemma49@gmail.com](mailto:kuralemma49@gmail.com)
 
 ---
 
-Designed and built by Kura Lemma. Keep learning, keep building.
+Designed and built by Kura Lemma. Learn. Build. Improve. Repeat.
