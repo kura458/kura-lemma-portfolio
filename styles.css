@@ -1431,3 +1431,24 @@ body {
 @media (max-width: 650px) {
   .theme-toggle { margin-left: 0; }
 }
+
+
+/* Keep the language and theme controls together at the far right. */
+.nav-controls {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-left: auto;
+}
+.nav-controls .language-toggle,
+.nav-controls .theme-toggle {
+  margin: 0;
+}
+@media (max-width: 650px) {
+  .nav-controls {
+    margin-left: auto;
+    gap: 6px;
+  }
+}
