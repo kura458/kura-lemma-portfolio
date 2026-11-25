@@ -1518,3 +1518,43 @@ body {
 }
 
 .project-details{margin:14px 0 2px;padding:12px 14px;border:1px solid var(--border-color,rgba(148,163,184,.24));border-radius:12px;background:var(--surface-soft,rgba(148,163,184,.06));font-size:.9rem}.project-details summary{cursor:pointer;color:var(--color-accent-light,var(--accent));font-weight:700}.project-details p{margin:10px 0 0;line-height:1.65}.github-activity{display:flex;align-items:center;justify-content:space-between;gap:32px;margin-top:54px;margin-bottom:54px;padding:clamp(24px,4vw,42px);border:1px solid var(--border-color,rgba(148,163,184,.25));border-radius:22px;background:var(--surface-soft,rgba(148,163,184,.07))}.github-activity-copy{max-width:620px}.github-activity h2{margin:8px 0 12px}.github-activity-copy>p:last-child{line-height:1.75}.github-activity-actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px;max-width:340px}.github-activity-actions .text-link{flex-basis:100%}@media(max-width:760px){.github-activity{flex-direction:column;align-items:flex-start}.github-activity-actions{max-width:none}}
+
+
+/* Accessibility and navigation finishing pass */
+html { scroll-behavior: smooth; scroll-padding-top: 92px; }
+.skip-link {
+  position: fixed;
+  z-index: 2000;
+  top: 10px;
+  left: 10px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  background: #fff;
+  color: #111827;
+  font-weight: 800;
+  transform: translateY(-160%);
+}
+.skip-link:focus { transform: translateY(0); }
+:where(a, button, input, summary, [tabindex]):focus-visible {
+  outline: 3px solid #fbbf24;
+  outline-offset: 4px;
+}
+.nav-links a[aria-current="location"] {
+  color: var(--color-accent-light);
+  font-weight: 800;
+}
+.nav-links a[aria-current="location"]::after { transform: scaleX(1); }
+.menu-toggle { cursor: pointer; }
+.menu-toggle-checkbox:focus-visible + .menu-toggle {
+  outline: 3px solid #fbbf24;
+  outline-offset: 4px;
+}
+.project-details summary { min-height: 28px; display: flex; align-items: center; }
+.hero-profile-image { display: block; }
+@media (max-width: 650px) {
+  html { scroll-padding-top: 118px; }
+  .nav-links a[aria-current="location"] { text-decoration: underline; text-underline-offset: 5px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
