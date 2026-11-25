@@ -1824,28 +1824,23 @@ html { scroll-behavior: smooth; scroll-padding-top: 92px; }
 }
 .site-header .logo-name {
   display: flex;
-  flex-direction: column;
-  gap: 3px;
-  align-items: flex-start;
+  flex-direction: row;
+  align-items: baseline;
+  gap: .24em;
+  white-space: nowrap;
 }
-.site-header .logo-first {
+.site-header .logo-first,
+.site-header .logo-last {
   color: var(--color-heading);
   font-size: 1.03rem;
   font-weight: 900;
   letter-spacing: -.045em;
 }
-.site-header .logo-last {
-  color: var(--color-muted);
-  font-size: .68rem;
-  font-weight: 800;
-  letter-spacing: .19em;
-  text-transform: uppercase;
-}
 .site-header .logo-dot {
-  align-self: flex-start;
-  margin: -2px 0 0 -9px;
+  align-self: center;
+  margin: 0 0 0 -7px;
   color: #fb923c;
-  font-size: 1.5rem;
+  font-size: 1.35rem;
   font-weight: 950;
 }
 .site-header .logo:hover .logo-mark {
@@ -1857,8 +1852,8 @@ html { scroll-behavior: smooth; scroll-padding-top: 92px; }
 @media (max-width: 650px) {
   .site-header .logo { gap: 8px; }
   .site-header .logo-mark { width: 35px; height: 35px; border-radius: 10px; }
-  .site-header .logo-first { font-size: .94rem; }
-  .site-header .logo-last { font-size: .61rem; }
+  .site-header .logo-first,
+  .site-header .logo-last { font-size: .94rem; }
 }
 @media (prefers-reduced-motion: reduce) {
   .site-header .logo-mark { transition: none; }
