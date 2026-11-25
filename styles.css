@@ -1040,6 +1040,7 @@ section[id] { scroll-margin-top: 92px; }
 .achievement-card p { color: var(--color-muted); font-size: .92rem; }
 @media (max-width: 950px) {
   .resume-grid { grid-template-columns: 1fr; }
+  .certificate-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .achievement-grid { grid-template-columns: 1fr; }
   .navbar { gap: 12px; }
   .nav-links { gap: 13px; }
@@ -1048,6 +1049,7 @@ section[id] { scroll-margin-top: 92px; }
 @media (max-width: 650px) {
   .resume-section, .skills-section, .certificates-section, .achievements-section { padding-block: 72px; }
   .skill-groups { grid-template-columns: 1fr; }
+  .certificate-grid { grid-template-columns: 1fr; }
   .resume-actions { align-items: stretch; flex-direction: column; }
   .resume-actions .button { width: 100%; }
   .certificate-empty { padding: 28px 20px; }
