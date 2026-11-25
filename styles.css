@@ -1910,3 +1910,57 @@ html { scroll-behavior: smooth; scroll-padding-top: 92px; }
   .site-header .logo:hover .logo-dot,
   .site-header .logo:focus-visible .logo-dot { transform: none; }
 }
+
+/* =========================================================
+   User Action Pseudo-classes
+   ========================================================= */
+
+/* :link and :visited — keep link states consistent */
+a:link,
+a:visited {
+  text-decoration-thickness: .08em;
+  text-underline-offset: .2em;
+}
+
+/* :hover — indicate that an element is interactive */
+:where(a, button, .button, .language-toggle, .theme-toggle, summary):hover {
+  cursor: pointer;
+}
+
+/* :focus and :focus-visible — clear keyboard interaction feedback */
+:where(a, button, input, select, textarea, summary, [tabindex]):focus {
+  outline-offset: 3px;
+}
+
+:where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+  outline: 2px solid var(--color-accent-light, #60a5fa);
+  outline-offset: 4px;
+}
+
+/* :focus-within — highlight a form field when its control is focused */
+.form-field:focus-within {
+  border-radius: 8px;
+}
+
+/* :active — give clickable controls a subtle pressed response */
+:where(button, .button, .language-toggle, .theme-toggle):active {
+  transform: translateY(1px) scale(.98);
+}
+
+/* :checked — use the site's accent color for selected controls */
+input[type="checkbox"],
+input[type="radio"] {
+  accent-color: var(--color-accent, #60a5fa);
+}
+
+/* :disabled — make unavailable controls visually clear */
+:where(button, input, select, textarea):disabled {
+  cursor: not-allowed;
+  opacity: .58;
+}
+
+/* :target — make the section reached by an in-page link easier to spot */
+section:target {
+  scroll-margin-top: 6rem;
+}
+
