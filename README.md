@@ -10,7 +10,7 @@ The site is a lightweight static website built with semantic HTML5 and CSS3. It 
 - Skip-to-content link and visible keyboard focus states
 - Reduced-motion support
 - Hero, projects, about, and contact sections
-- Featured project cards
+- Featured project cards linking directly to their project folders
 - Dark theme with blue accents
 - SEO description and social-sharing metadata
 - Custom SVG favicon
@@ -39,21 +39,21 @@ kura-lemma-portfolio/
 
 ### Book Inventory
 
-A book-inventory interface featured in my web-design practice work.
+A responsive book inventory table showing book details, reading statuses, and visual ratings.
 
-[View the source repository](https://github.com/kura458/Web_Design_practice_workshop_-lab)
+[View the Book Inventory project files](https://github.com/kura458/Web_Design_practice_workshop_-lab/tree/main/Book_Inventory)
 
-### Product Landing Page
+### SoundWave Product Landing Page
 
-A product presentation page with navigation, product information, video content, and an email subscription form.
+A responsive fictional wireless-headphones product page with feature cards, a demonstration video, pricing plans, and an email subscription form.
 
-[View the source repository](https://github.com/kura458/Web_Design_practice_workshop_-lab)
+[View the SoundWave project files](https://github.com/kura458/Web_Design_practice_workshop_-lab/tree/main/SoundWave_Landing_Page)
 
 ### Web Design Practice
 
 A collection of web-development exercises focused on semantic markup, styling, responsive layouts, and accessibility.
 
-[Explore my web-design practice repository](https://github.com/kura458/Web_Design_practice_workshop_-lab)
+[Explore the web-design practice repository](https://github.com/kura458/Web_Design_practice_workshop_-lab)
 
 More projects and ongoing work are available on [my GitHub profile](https://github.com/kura458).
 
