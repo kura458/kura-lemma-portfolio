@@ -1793,3 +1793,73 @@ html { scroll-behavior: smooth; scroll-padding-top: 92px; }
   .project-tile, .resume-card, .skill-group, .button { transition: none; }
   .project-tile:hover, .resume-card:hover, .skill-group:hover, .button:hover { transform: none; }
 }
+
+
+/* Distinct navigation wordmark */
+.site-header .logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  flex: 0 0 auto;
+  color: var(--color-heading);
+  font-size: 1rem;
+  font-weight: 900;
+  letter-spacing: 0;
+  line-height: 1;
+  text-decoration: none;
+}
+.site-header .logo-mark {
+  display: grid;
+  width: 39px;
+  height: 39px;
+  place-items: center;
+  border: 1px solid rgb(255 255 255 / 22%);
+  border-radius: 12px;
+  background: linear-gradient(135deg, #2dd4bf 0%, #60a5fa 48%, #a78bfa 100%);
+  box-shadow: 0 7px 20px rgb(45 212 191 / 18%);
+  color: #081321;
+  font-size: 1.2rem;
+  font-weight: 950;
+  letter-spacing: -.06em;
+}
+.site-header .logo-name {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  align-items: flex-start;
+}
+.site-header .logo-first {
+  color: var(--color-heading);
+  font-size: 1.03rem;
+  font-weight: 900;
+  letter-spacing: -.045em;
+}
+.site-header .logo-last {
+  color: var(--color-muted);
+  font-size: .68rem;
+  font-weight: 800;
+  letter-spacing: .19em;
+  text-transform: uppercase;
+}
+.site-header .logo-dot {
+  align-self: flex-start;
+  margin: -2px 0 0 -9px;
+  color: #fb923c;
+  font-size: 1.5rem;
+  font-weight: 950;
+}
+.site-header .logo:hover .logo-mark {
+  transform: translateY(-2px) rotate(-4deg);
+  box-shadow: 0 10px 24px rgb(45 212 191 / 28%);
+}
+.site-header .logo-mark { transition: transform 180ms ease, box-shadow 180ms ease; }
+:root[data-theme="light"] .site-header .logo-mark { color: #081321; }
+@media (max-width: 650px) {
+  .site-header .logo { gap: 8px; }
+  .site-header .logo-mark { width: 35px; height: 35px; border-radius: 10px; }
+  .site-header .logo-first { font-size: .94rem; }
+  .site-header .logo-last { font-size: .61rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .site-header .logo-mark { transition: none; }
+}
