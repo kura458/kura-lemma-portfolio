@@ -1215,3 +1215,98 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .nav-links a::after { transition: none; }
 }
+
+
+/* Color-rich portfolio theme: teal, violet, coral and gold */
+:root {
+  --color-bg: #0b1020;
+  --color-surface: #111a2d;
+  --color-card: #172238;
+  --color-border: #33415c;
+  --color-border-light: #52627e;
+  --color-text: #e7edf7;
+  --color-heading: #fffaf5;
+  --color-muted: #b7c2d5;
+  --color-subtle: #91a0b8;
+  --color-accent: #f59e72;
+  --color-accent-light: #ffc19f;
+  --color-accent-dark: #351b20;
+}
+body {
+  background:
+    radial-gradient(ellipse at 8% 4%, rgb(20 184 166 / 13%), transparent 34rem),
+    radial-gradient(ellipse at 94% 24%, rgb(139 92 246 / 13%), transparent 31rem),
+    radial-gradient(ellipse at 50% 76%, rgb(245 158 11 / 6%), transparent 35rem),
+    var(--color-bg);
+}
+.logo span, .section-heading h2 span { color: #f59e72; }
+.hero::before {
+  background: radial-gradient(ellipse, rgb(139 92 246 / 18%), transparent 68%);
+}
+.hero h1 span, .about-content h2 span { color: #7dd3fc; }
+.eyebrow, .project-number, .resume-label { color: #5eead4; }
+.primary-button {
+  border-color: #f59e72;
+  background: linear-gradient(110deg, #f59e72, #fbbf24);
+  color: #251522;
+}
+.primary-button:hover {
+  background: linear-gradient(110deg, #ffc19f, #fde68a);
+  color: #251522;
+}
+.secondary-button { border-color: #7dd3fc; color: #a5e5ff; }
+.secondary-button:hover { background: rgb(125 211 252 / 12%); }
+.projects-section, .skills-section {
+  background: linear-gradient(145deg, #111a2d, #17182f 55%, #10252d);
+}
+.contact-section {
+  background:
+    radial-gradient(ellipse at 15% 20%, rgb(20 184 166 / 14%), transparent 30rem),
+    radial-gradient(ellipse at 85% 80%, rgb(139 92 246 / 16%), transparent 30rem),
+    #111a2d;
+}
+.project-tile:nth-child(3n + 1) { border-top: 3px solid #2dd4bf; }
+.project-tile:nth-child(3n + 2) { border-top: 3px solid #a78bfa; }
+.project-tile:nth-child(3n) { border-top: 3px solid #fb923c; }
+.resume-card:nth-child(3n + 1) .resume-icon { color: #5eead4; background: rgb(45 212 191 / 13%); }
+.resume-card:nth-child(3n + 2) .resume-icon { color: #c4b5fd; background: rgb(167 139 250 / 14%); }
+.resume-card:nth-child(3n) .resume-icon { color: #fdba74; background: rgb(251 146 60 / 14%); }
+.skill-group:nth-child(4n + 1) { border-top: 3px solid #2dd4bf; }
+.skill-group:nth-child(4n + 2) { border-top: 3px solid #a78bfa; }
+.skill-group:nth-child(4n + 3) { border-top: 3px solid #fb923c; }
+.skill-group:nth-child(4n) { border-top: 3px solid #60a5fa; }
+.certificate-card:nth-child(3n + 1) { border-top: 3px solid #2dd4bf; }
+.certificate-card:nth-child(3n + 2) { border-top: 3px solid #a78bfa; }
+.certificate-card:nth-child(3n) { border-top: 3px solid #fb923c; }
+.tech-list li, .skill-list li {
+  border-color: rgb(125 211 252 / 27%);
+  background: linear-gradient(110deg, rgb(45 212 191 / 9%), rgb(167 139 250 / 9%));
+  color: #d5f4ff;
+}
+.language-toggle {
+  flex: 0 0 auto;
+  min-width: 48px;
+  min-height: 40px;
+  padding: 7px 12px;
+  border: 1px solid rgb(125 211 252 / 55%);
+  border-radius: 999px;
+  background: linear-gradient(120deg, rgb(45 212 191 / 16%), rgb(167 139 250 / 18%));
+  color: #e8f5ff;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+.language-toggle:hover {
+  transform: translateY(-2px);
+  border-color: #f59e72;
+  background: linear-gradient(120deg, rgb(245 158 114 / 20%), rgb(167 139 250 / 20%));
+}
+.language-toggle:focus-visible { outline: 3px solid #ffc19f; outline-offset: 3px; }
+@media (max-width: 950px) {
+  .navbar { flex-wrap: wrap; }
+  .language-toggle { margin-left: auto; }
+}
+@media (max-width: 650px) {
+  .navbar { flex-wrap: nowrap; }
+  .language-toggle { margin-left: auto; margin-right: 4px; }
+}
