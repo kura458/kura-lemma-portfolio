@@ -10,7 +10,8 @@ This is a lightweight static website built with semantic HTML5 and CSS3. It is d
 
 ## Features
 
-- Responsive dark navy and blue design
+- Responsive multi-color dark theme with teal, violet, coral, and gold accents
+- English and Amharic language switcher for key portfolio content
 - Mobile navigation menu with keyboard support
 - Hero, profile, education, practical experience, skills, projects, certificates, achievements, and contact sections
 - Eight project cards linking to their actual GitHub repositories or project folders
@@ -25,7 +26,7 @@ This is a lightweight static website built with semantic HTML5 and CSS3. It is d
 
 - HTML5
 - CSS3, Flexbox, CSS Grid, and media queries
-- Small vanilla JavaScript enhancement for closing the mobile menu after navigation
+- Vanilla JavaScript for mobile navigation and English/Amharic language switching
 - JSON-LD structured data
 - Git, GitHub, and Vercel
 
