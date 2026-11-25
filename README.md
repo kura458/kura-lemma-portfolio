@@ -2,7 +2,7 @@
 
 Live website: **[https://kura-lemma-portfolio.vercel.app](https://kura-lemma-portfolio.vercel.app)**
 
-A personal portfolio presenting my software engineering journey, selected academic and personal projects, technologies, and contact links.
+A personal portfolio presenting my education, technical skills, selected academic and personal projects, certificates, and contact information.
 
 ## Website
 
@@ -12,7 +12,7 @@ This is a lightweight static website built with semantic HTML5 and CSS3. It is d
 
 - Responsive dark navy and blue design
 - Mobile navigation menu with keyboard support
-- Hero, selected projects, about, skills, and contact sections
+- Hero, profile, education, practical experience, skills, projects, certificates, achievements, and contact sections
 - Eight project cards linking to their actual GitHub repositories or project folders
 - Contact links for email, LinkedIn, Telegram, and GitHub
 - Skip-to-content link, visible keyboard focus, and reduced-motion support
@@ -39,6 +39,10 @@ kura-lemma-portfolio/
 ├── vercel.json
 └── README.md
 ```
+
+## Education and development focus
+
+B.Sc. Software Engineering student at Debre Berhan University, Ethiopia. Expected graduation: 2020 E.C. (2027/2028 G.C.). Current learning focus: JavaScript, React, REST APIs, backend development, and full-stack application practices.
 
 ## Featured projects
 
