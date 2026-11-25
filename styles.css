@@ -1468,3 +1468,51 @@ body {
     margin-left: 0;
   }
 }
+
+
+/* GitHub profile portrait in the hero section */
+.profile-photo-frame {
+  position: relative;
+  width: min(100%, 350px);
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  padding: 7px;
+  border-radius: 50%;
+  background: conic-gradient(from 145deg, #2dd4bf, #60a5fa, #a78bfa, #fb923c, #2dd4bf);
+  box-shadow: 0 0 0 12px rgb(125 211 252 / 5%), 0 24px 70px rgb(0 0 0 / 35%);
+}
+.hero-profile-image {
+  width: 100%;
+  height: 100%;
+  border: 5px solid var(--color-bg);
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  background: var(--color-card);
+}
+.profile-photo-caption {
+  position: absolute;
+  right: -18px;
+  bottom: 18px;
+  padding: 9px 15px;
+  border: 1px solid rgb(125 211 252 / 35%);
+  border-radius: 999px;
+  background: var(--color-card);
+  color: var(--color-accent-light);
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .12em;
+  box-shadow: 0 8px 24px rgb(0 0 0 / 24%);
+}
+@media (max-width: 950px) {
+  .profile-photo-frame { width: min(100%, 300px); }
+}
+@media (max-width: 650px) {
+  .hero-decoration { min-height: 320px; }
+  .profile-photo-frame { width: min(78vw, 280px); }
+  .profile-photo-caption { right: -8px; bottom: 12px; }
+}
+:root[data-theme="light"] .hero-profile-image {
+  border-color: var(--color-bg);
+}
