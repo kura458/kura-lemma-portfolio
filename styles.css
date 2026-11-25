@@ -1835,9 +1835,12 @@ html { scroll-behavior: smooth; scroll-padding-top: 92px; }
   font-size: 1.03rem;
   font-weight: 900;
   letter-spacing: -.045em;
+  background-size: 180% 180%;
+  background-position: 0% 50%;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  transition: background-position 260ms ease, filter 260ms ease, transform 260ms ease;
 }
 .site-header .logo-first {
   background-image: linear-gradient(105deg, #22d3ee 0%, #3b82f6 100%);
@@ -1852,11 +1855,40 @@ html { scroll-behavior: smooth; scroll-padding-top: 92px; }
   font-size: 1.35rem;
   font-weight: 950;
 }
-.site-header .logo:hover .logo-mark {
-  transform: translateY(-2px) rotate(-4deg);
-  box-shadow: 0 10px 24px rgb(45 212 191 / 28%);
+.site-header .logo-mark {
+  transition: transform 260ms cubic-bezier(.2,.8,.2,1), box-shadow 260ms ease, border-color 260ms ease;
 }
-.site-header .logo-mark { transition: transform 180ms ease, box-shadow 180ms ease; }
+.site-header .logo-dot {
+  transition: transform 260ms ease, color 260ms ease, text-shadow 260ms ease;
+}
+.site-header .logo:hover .logo-mark,
+.site-header .logo:focus-visible .logo-mark {
+  transform: translateY(-3px) rotate(-7deg) scale(1.06);
+  border-color: rgb(255 255 255 / 55%);
+  box-shadow: 0 12px 28px rgb(45 212 191 / 34%), 0 0 0 4px rgb(96 165 250 / 10%);
+}
+.site-header .logo:hover .logo-first,
+.site-header .logo:focus-visible .logo-first,
+.site-header .logo:hover .logo-last,
+.site-header .logo:focus-visible .logo-last {
+  background-position: 100% 50%;
+  filter: drop-shadow(0 2px 7px rgb(96 165 250 / 22%));
+  transform: translateY(-1px);
+}
+.site-header .logo:hover .logo-dot,
+.site-header .logo:focus-visible .logo-dot {
+  color: #f97316;
+  transform: translateY(-3px) scale(1.25);
+  text-shadow: 0 0 12px rgb(249 115 22 / 45%);
+}
+.site-header .logo:focus-visible {
+  outline: 2px solid #60a5fa;
+  outline-offset: 6px;
+  border-radius: 8px;
+}
+.site-header .logo:active .logo-mark {
+  transform: translateY(0) scale(.96);
+}
 :root[data-theme="light"] .site-header .logo-mark { color: #081321; }
 @media (max-width: 650px) {
   .site-header .logo { gap: 8px; }
@@ -1865,5 +1897,16 @@ html { scroll-behavior: smooth; scroll-padding-top: 92px; }
   .site-header .logo-last { font-size: .94rem; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .site-header .logo-mark { transition: none; }
+  .site-header .logo-mark,
+  .site-header .logo-dot,
+  .site-header .logo-first,
+  .site-header .logo-last { transition: none; }
+  .site-header .logo:hover .logo-mark,
+  .site-header .logo:focus-visible .logo-mark,
+  .site-header .logo:hover .logo-first,
+  .site-header .logo:focus-visible .logo-first,
+  .site-header .logo:hover .logo-last,
+  .site-header .logo:focus-visible .logo-last,
+  .site-header .logo:hover .logo-dot,
+  .site-header .logo:focus-visible .logo-dot { transform: none; }
 }
