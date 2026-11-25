@@ -43,6 +43,7 @@
   <header class="site-header">
     <nav class="navbar" aria-label="Main navigation">
       <a class="logo" href="#home" aria-label="Kura Lemma, home">KL<span>.</span></a>
+      <button class="language-toggle" id="language-toggle" type="button" aria-label="Switch to Amharic" aria-pressed="false">አማ</button>
       <input class="menu-toggle-checkbox" type="checkbox" id="menu-toggle" aria-controls="primary-navigation">
       <label class="menu-toggle" for="menu-toggle">
         <span class="menu-open-label">Menu ☰</span>
@@ -250,6 +251,67 @@
     <a class="footer-link" href="https://github.com/kura458" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
   </footer>
   <script>
+
+    const languageButton = document.querySelector("#language-toggle");
+    const translations = {
+      "a[href='#home']": ["Home", "መነሻ"],
+      "a[href='#about']": ["About", "ስለ እኔ"],
+      "a[href='#resume']": ["Resume", "የትምህርት ታሪክ"],
+      "a[href='#skills-section']": ["Skills", "ክህሎቶች"],
+      "a[href='#projects']": ["Projects", "ፕሮጀክቶች"],
+      "a[href='#certificates']": ["Certificates", "ሰርተፊኬቶች"],
+      "a[href='#contact']": ["Contact", "አግኙኝ"],
+      ".eyebrow": [
+        ["SOFTWARE ENGINEERING STUDENT · DEBRE BERHAN UNIVERSITY","A LITTLE ABOUT ME","EDUCATION & EXPERIENCE","MY TOOLKIT","SELECTED WORK","CONTINUOUS LEARNING","PROGRESS THAT MATTERS","LET'S CONNECT"],
+        ["የሶፍትዌር ኢንጂነሪንግ ተማሪ · ደብረ ብርሃን ዩኒቨርሲቲ","ስለ እኔ በአጭሩ","ትምህርት እና ልምድ","የቴክኖሎጂ መሣሪያዎቼ","የተመረጡ ሥራዎች","ቀጣይነት ያለው ትምህርት","የእድገት ሂደት","እንገናኝ"]
+      ],
+      ".hero h1": ["Hi, I'm Kura Lemma. Building practical digital solutions.","ሰላም፣ ኩራ ለማ ነኝ። ተግባራዊ የዲጂታል መፍትሄዎችን እገነባለሁ።"],
+      ".intro": ["I am a Software Engineering student at Debre Berhan University, Ethiopia, with hands-on experience building academic and personal software projects. I work with frontend technologies, Java and Spring Boot, relational databases, and Python-based coursework. I am strengthening my JavaScript skills and building toward full-stack development.","በኢትዮጵያ ደብረ ብርሃን ዩኒቨርሲቲ የሶፍትዌር ኢንጂነሪንግ ተማሪ ነኝ። በትምህርታዊና በግል ፕሮጀክቶች ላይ ተግባራዊ ልምድ አለኝ። በFrontend ቴክኖሎጂዎች፣ Java፣ Spring Boot፣ ዳታቤዝ እና Python ላይ እሰራለሁ። JavaScript ክህሎቴን እያጠናከርኩ ወደ Full-Stack Development እያደግሁ ነው።"],
+      ".welcome-buttons .primary-button": ["Explore My Work","ሥራዎቼን ይመልከቱ"],
+      ".welcome-buttons .secondary-button": ["Get in Touch","ያግኙኝ"],
+      ".scroll-note": ["LEARN · BUILD · IMPROVE ↓","ተማር · ገንባ · አሻሽል ↓"],
+      ".about-content h2": ["Curiosity today. Better code tomorrow.","የዛሬ ጉጉት። የነገ የተሻለ ኮድ።"],
+      ".about-content > p:not(.eyebrow)": [
+        ["I study Software Engineering at Debre Berhan University in Ethiopia. I enjoy breaking down problems, understanding how software systems work, and turning ideas into usable applications.","My projects include responsive web interfaces, a Java/Spring Boot job-portal codebase, Android passenger-interface prototyping, and Python search-algorithm implementations. I am currently strengthening JavaScript and progressing toward React, REST APIs, and backend development."],
+        ["በኢትዮጵያ ደብረ ብርሃን ዩኒቨርሲቲ የሶፍትዌር ኢንጂነሪንግ ትምህርት እየተማርኩ ነው። ችግሮችን መተንተን፣ ሶፍትዌሮች እንዴት እንደሚሰሩ መረዳት እና ሀሳቦችን ወደ ተግባራዊ መተግበሪያዎች መቀየር እወዳለሁ።","ፕሮጀክቶቼ የResponsive ድረ-ገጾችን፣ Java/Spring Boot የሥራ ፍለጋ ስርዓትን፣ የAndroid ተጠቃሚ ገጽታ ንድፍን እና የPython ፍለጋ አልጎርይዝሞችን ያካትታሉ። JavaScript እያጠናከርኩ React፣ REST API እና Backend Development እየተማርኩ ነው።"]
+      ],
+      ".text-link": ["Visit my GitHub profile ↗","የGitHub መገለጫዬን ይጎብኙ ↗"],
+      ".skills h3": ["Technologies & Tools","ቴክኖሎጂዎች እና መሣሪያዎች"],
+      ".skills-intro": ["Tools I've used in projects or am actively learning:","በፕሮጀክቶች የተጠቀምኳቸው ወይም እየተማርኳቸው ያሉ መሣሪያዎች፦"],
+      ".section-heading h2": [
+        ["My Resume.","የትምህርት እና ልምድ መግለጫ።","Skills & Technologies.","ክህሎቶች እና ቴክኖሎጂዎች።","Projects I've Built.","የሰራኋቸው ፕሮጀክቶች።","Certificates & Learning.","ሰርተፊኬቶች እና ትምህርት።","Learning & Achievements.","ትምህርት እና ስኬቶች።"],
+        ["የትምህርት እና ልምድ መግለጫ።","የትምህርት እና ልምድ መግለጫ።","ክህሎቶች እና ቴክኖሎጂዎች።","ክህሎቶች እና ቴክኖሎጂዎች።","የሰራኋቸው ፕሮጀክቶች።","የሰራኋቸው ፕሮጀክቶች።","ሰርተፊኬቶች እና ትምህርት።","ሰርተፊኬቶች እና ትምህርት።","ትምህርት እና ስኬቶች።"]
+      ],
+      ".section-heading > p:last-child": [
+        ["A concise overview of my academic background and practical software-development experience.","Technologies I have used in coursework and projects, alongside areas I am actively developing.","A selection of academic, personal, and learning projects. Open each repository to explore its source code and documentation.","Completed programs and certificates from technology and online-learning platforms.","My focus is on consistent progress, practical work, and turning what I learn into working projects."],
+        ["የትምህርት ዝግጅቴን እና ተግባራዊ የሶፍትዌር ልምዴን በአጭሩ የሚያሳይ።","በትምህርትና በፕሮጀክቶች የተጠቀምኳቸው እና እያዳበርኳቸው ያሉ ቴክኖሎጂዎች።","የትምህርት፣ የግል እና የልምምድ ፕሮጀክቶች ምርጫ። የምንጭ ኮዱን ለማየት ሪፖዚቶሪዎቹን ይክፈቱ።","የጨረስኳቸው ፕሮግራሞች እና ሰርተፊኬቶች።","ትኩረቴ በቀጣይነት መማር፣ በተግባር መስራት እና የተማርኩትን ወደ ሥራ መቀየር ላይ ነው።"]
+      ],
+      ".project-description": [
+        ["A book inventory interface presenting book details, reading statuses, and a visual rating system.","A responsive wireless-headphones product page with feature cards, a demonstration video, pricing plans, and an email form."],
+        ["የመጽሐፍ ዝርዝሮችን፣ የንባብ ሁኔታን እና የደረጃ አሰጣጥን የሚያሳይ የመጽሐፍ ክምችት ገጽታ።","የጆሮ ማዳመጫ ምርትን፣ ባህሪያትን፣ የዋጋ እቅዶችን እና የኢሜይል ቅጽን የያዘ Responsive ድረ-ገጽ።"]
+      ],
+      ".contact-section h2": ["Let's learn and build something meaningful.","አብረን እንማር እና ጠቃሚ ነገር እንገንባ።"],
+      ".contact-description": ["I'm open to learning opportunities, collaboration, and software engineering internship opportunities. Feel free to reach out or explore my work.","የመማር እድሎችን፣ ትብብርን እና የሶፍትዌር ኢንጂነሪንግ Internship እድሎችን እፈልጋለሁ። ለመገናኘት ወይም ሥራዎቼን ለማየት አያመንቱ።"]
+    };
+    function setLanguage(lang) {
+      document.documentElement.lang = lang;
+      document.documentElement.dir = "ltr";
+      for (const [selector, values] of Object.entries(translations)) {
+        const nodes = document.querySelectorAll(selector);
+        nodes.forEach((node, index) => {
+          const value = values[lang === "am" ? 1 : 0];
+          const text = Array.isArray(value) ? value[index] : value;
+          if (typeof text === "string") node.textContent = text;
+        });
+      }
+      languageButton.textContent = lang === "am" ? "EN" : "አማ";
+      languageButton.setAttribute("aria-label", lang === "am" ? "Switch to English" : "ወደ አማርኛ ቀይር");
+      languageButton.setAttribute("aria-pressed", String(lang === "am"));
+    }
+    languageButton.addEventListener("click", () => {
+      setLanguage(document.documentElement.lang === "en" ? "am" : "en");
+    });
+
     const menuToggle = document.querySelector("#menu-toggle");
     const navigationLinks = document.querySelectorAll("#primary-navigation a");
 
