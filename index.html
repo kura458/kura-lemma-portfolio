@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Kura Lemma is a Software Engineering student at Debre Berhan University building web applications, exploring AI, and learning full-stack development. Explore selected projects and connect.">
-  <meta name="author" content="Kura Lemma">
+  <meta name="author" content="Kura Lemma">\n  <meta name="keywords" content="Kura Lemma, Software Engineering student, Debre Berhan University, web developer, full-stack developer, portfolio, Ethiopia">\n  <meta property="og:locale" content="en_US">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="theme-color" content="#0b1120">
   <meta name="color-scheme" content="dark">
@@ -14,7 +14,7 @@
   <meta property="og:title" content="Kura Lemma | Software Engineering Student & Developer">
   <meta property="og:description" content="Explore Kura Lemma's selected software projects, web development work, and learning journey.">
   <meta property="og:site_name" content="Kura Lemma Portfolio">
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">\n  <meta property="og:image" content="https://avatars.githubusercontent.com/u/193003555?v=4">\n  <meta property="og:image:alt" content="Kura Lemma profile photo">\n  <meta name="twitter:image" content="https://avatars.githubusercontent.com/u/193003555?v=4">
   <meta name="twitter:title" content="Kura Lemma | Developer Portfolio">
   <meta name="twitter:description" content="Selected projects and software engineering journey of Kura Lemma.">
   <title>Kura Lemma Portfolio | Software Engineering Student &amp; Web Developer</title>
@@ -50,7 +50,7 @@
         <span class="menu-close-label">Close ✕</span>
       </label>
       <div class="nav-links" id="primary-navigation">
-        <a href="#home">Home</a><a href="#about">About</a><a href="#resume">Resume</a>
+        <a href="#home" aria-current="location">Home</a><a href="#about">About</a><a href="#resume">Resume</a>
         <a href="#skills-section">Skills</a><a href="#projects">Projects</a>
         <a href="#certificates">Certificates</a><a href="#contact">Contact</a>
       </div>
@@ -367,17 +367,54 @@
       ".resume-actions p": ["Interested in my background? Contact me for my latest CV or connect with me on LinkedIn.","ስለ ትምህርቴና ልምዴ ፍላጎት አለዎት? የቅርብ ጊዜ CV ለመጠየቅ ወይም በLinkedIn ለመገናኘት ይችላሉፁ።"]
     });
 
+    function setDirectText(node, value) {
+      const textNodes = [...node.childNodes].filter((child) => child.nodeType === Node.TEXT_NODE);
+      if (textNodes.length) {
+        textNodes[0].textContent = value;
+        textNodes.slice(1).forEach((textNode) => { textNode.textContent = ""; });
+      } else {
+        node.insertBefore(document.createTextNode(value), node.firstChild);
+      }
+    }
+
     function setLanguage(lang) {
       document.documentElement.lang = lang;
       document.documentElement.dir = "ltr";
       for (const [selector, values] of Object.entries(translations)) {
-        if (selector === ".more-projects") continue;
+        if (selector === ".more-projects" || selector === ".hero h1" || selector === ".about-content h2") continue;
         const nodes = document.querySelectorAll(selector);
         nodes.forEach((node, index) => {
           const value = values[lang === "am" ? 1 : 0];
           const text = Array.isArray(value) ? value[index] : value;
-          if (typeof text === "string") node.textContent = text;
+          if (typeof text !== "string") return;
+          if (node.children.length || node.querySelector("svg, img")) setDirectText(node, text.replace(/[.。]$/, ""));
+          else node.textContent = text;
         });
+      }
+
+      const heroTitle = document.querySelector(".hero h1");
+      if (heroTitle) {
+        const parts = lang === "am"
+          ? ["ሰላም፣ እኔ ", " ነኝ።", "ተግባራዊ የዲጂታል መፍትሄዎችን እገነባለሁ።"]
+          : ["Hi, I'm ", ".", "Building practical digital solutions."];
+        const name = heroTitle.querySelector("span");
+        const br = heroTitle.querySelector("br");
+        if (name && br) {
+          heroTitle.childNodes[0].textContent = parts[0];
+          name.textContent = "Kura Lemma";
+          br.nextSibling.textContent = parts[2];
+          if (lang === "am") name.textContent = "ኩራ ለማ";
+          else name.textContent = "Kura Lemma";
+        }
+      }
+      const aboutTitle = document.querySelector(".about-content h2");
+      if (aboutTitle) {
+        const highlight = aboutTitle.querySelector("span");
+        const lineBreak = aboutTitle.querySelector("br");
+        if (highlight && lineBreak) {
+          aboutTitle.childNodes[0].textContent = lang === "am" ? "የዛሬ ጉጉት።" : "Curiosity today.";
+          highlight.textContent = lang === "am" ? "የነገ የተሻለ ኮድ።" : "Better code tomorrow.";
+        }
       }
       const moreProjects = document.querySelector(".more-projects");
       const moreLink = moreProjects?.querySelector("a");
@@ -430,13 +467,38 @@
     });
 
     const menuToggle = document.querySelector("#menu-toggle");
-    const navigationLinks = document.querySelectorAll("#primary-navigation a");
+    const menuLabel = document.querySelector(".menu-toggle");
+    const navigation = document.querySelector("#primary-navigation");
+    const navigationLinks = [...document.querySelectorAll("#primary-navigation a")];
 
-    navigationLinks.forEach((link) => {
-      link.addEventListener("click", () => {
-        menuToggle.checked = false;
-      });
+    function closeMobileMenu() {
+      if (menuToggle) menuToggle.checked = false;
+      menuToggle?.setAttribute("aria-expanded", "false");
+      menuLabel?.setAttribute("aria-label", "Open navigation menu");
+    }
+    menuToggle?.setAttribute("aria-expanded", "false");
+    menuToggle?.addEventListener("change", () => {
+      menuToggle.setAttribute("aria-expanded", String(menuToggle.checked));
+      menuLabel?.setAttribute("aria-label", menuToggle.checked ? "Close navigation menu" : "Open navigation menu");
     });
+    navigationLinks.forEach((link) => link.addEventListener("click", closeMobileMenu));
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") closeMobileMenu();
+    });
+
+    if ("IntersectionObserver" in window) {
+      const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const activeLink = navigationLinks.find((link) => link.getAttribute("href") === "#" + entry.target.id);
+          navigationLinks.forEach((link) => {
+            if (link === activeLink) link.setAttribute("aria-current", "location");
+            else link.removeAttribute("aria-current");
+          });
+        });
+      }, { rootMargin: "-28% 0px -62% 0px", threshold: 0 });
+      document.querySelectorAll("main section[id]").forEach((section) => sectionObserver.observe(section));
+    }
   </script>
 </body>
 </html>
