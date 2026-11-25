@@ -1516,3 +1516,5 @@ body {
 :root[data-theme="light"] .hero-profile-image {
   border-color: var(--color-bg);
 }
+
+.project-details{margin:14px 0 2px;padding:12px 14px;border:1px solid var(--border-color,rgba(148,163,184,.24));border-radius:12px;background:var(--surface-soft,rgba(148,163,184,.06));font-size:.9rem}.project-details summary{cursor:pointer;color:var(--color-accent-light,var(--accent));font-weight:700}.project-details p{margin:10px 0 0;line-height:1.65}.github-activity{display:flex;align-items:center;justify-content:space-between;gap:32px;margin-top:54px;margin-bottom:54px;padding:clamp(24px,4vw,42px);border:1px solid var(--border-color,rgba(148,163,184,.25));border-radius:22px;background:var(--surface-soft,rgba(148,163,184,.07))}.github-activity-copy{max-width:620px}.github-activity h2{margin:8px 0 12px}.github-activity-copy>p:last-child{line-height:1.75}.github-activity-actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px;max-width:340px}.github-activity-actions .text-link{flex-basis:100%}@media(max-width:760px){.github-activity{flex-direction:column;align-items:flex-start}.github-activity-actions{max-width:none}}
