@@ -348,7 +348,6 @@
       ".certificate-note": [
         ["e-SHE certificate IDs are shown as printed on the certificates. Individual online verification links were not provided.","የe-SHE ሰርተፊኬት መለያ ቁጥሮች በሰርተፊኬቶቹ ላይ እንደተጻፉ ቀርበዋል። የግል የOnline ማረጋገጫ አገናኞች አልተሰጡም።"]
       ],
-      ".more-projects": ["Want to see more? Explore all my GitHub repositories ↗","ተጨማሪ ለማየት ይፈልጋሉ? ሁሉንም የGitHub ሪፖዚቶሪዎቼን ይመልከቱ ↗"],
       ".resume-actions p": ["Interested in my background? Contact me for my latest CV or connect with me on LinkedIn.","ስለ ትምህርቴና ልምዴ ፍላጎት አለዎት? የቅርብ ጊዜ CV ለመጠየቅ ወይም በLinkedIn ለመገናኘት ይችላሉፁ።"]
     });
 
@@ -356,12 +355,23 @@
       document.documentElement.lang = lang;
       document.documentElement.dir = "ltr";
       for (const [selector, values] of Object.entries(translations)) {
+        if (selector === ".more-projects") continue;
         const nodes = document.querySelectorAll(selector);
         nodes.forEach((node, index) => {
           const value = values[lang === "am" ? 1 : 0];
           const text = Array.isArray(value) ? value[index] : value;
           if (typeof text === "string") node.textContent = text;
         });
+      }
+      const moreProjects = document.querySelector(".more-projects");
+      const moreLink = moreProjects?.querySelector("a");
+      if (moreProjects && moreLink) {
+        moreProjects.firstChild.textContent = lang === "am"
+          ? "ተጨማሪ ለማየት ይፈልጋሉ? "
+          : "Want to see more? ";
+        moreLink.textContent = lang === "am"
+          ? "ሁሉንም የGitHub ሪፖዚቶሪዎቼን ይመልከቱ ↗"
+          : "Explore all my GitHub repositories ↗";
       }
       languageButton.textContent = lang === "am" ? "EN" : "አማ";
       languageButton.setAttribute("aria-label", lang === "am" ? "Switch to English" : "ወደ አማርኛ ቀይር");
