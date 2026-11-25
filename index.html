@@ -254,13 +254,13 @@
 
     const languageButton = document.querySelector("#language-toggle");
     const translations = {
-      "a[href='#home']": ["Home", "መነሻ"],
-      "a[href='#about']": ["About", "ስለ እኔ"],
-      "a[href='#resume']": ["Resume", "የትምህርት ታሪክ"],
-      "a[href='#skills-section']": ["Skills", "ክህሎቶች"],
-      "a[href='#projects']": ["Projects", "ፕሮጀክቶች"],
-      "a[href='#certificates']": ["Certificates", "ሰርተፊኬቶች"],
-      "a[href='#contact']": ["Contact", "አግኙኝ"],
+      ".nav-links a[href='#home']": ["Home", "መነሻ"],
+      ".nav-links a[href='#about']": ["About", "ስለ እኔ"],
+      ".nav-links a[href='#resume']": ["Resume", "የትምህርት ታሪክ"],
+      ".nav-links a[href='#skills-section']": ["Skills", "ክህሎቶች"],
+      ".nav-links a[href='#projects']": ["Projects", "ፕሮጀክቶች"],
+      ".nav-links a[href='#certificates']": ["Certificates", "ሰርተፊኬቶች"],
+      ".nav-links a[href='#contact']": ["Contact", "አግኙኝ"],
       ".eyebrow": [
         ["SOFTWARE ENGINEERING STUDENT · DEBRE BERHAN UNIVERSITY","A LITTLE ABOUT ME","EDUCATION & EXPERIENCE","MY TOOLKIT","SELECTED WORK","CONTINUOUS LEARNING","PROGRESS THAT MATTERS","LET'S CONNECT"],
         ["የሶፍትዌር ኢንጂነሪንግ ተማሪ · ደብረ ብርሃን ዩኒቨርሲቲ","ስለ እኔ በአጭሩ","ትምህርት እና ልምድ","የቴክኖሎጂ መሣሪያዎቼ","የተመረጡ ሥራዎች","ቀጣይነት ያለው ትምህርት","የእድገት ሂደት","እንገናኝ"]
@@ -293,6 +293,65 @@
       ".contact-section h2": ["Let's learn and build something meaningful.","አብረን እንማር እና ጠቃሚ ነገር እንገንባ።"],
       ".contact-description": ["I'm open to learning opportunities, collaboration, and software engineering internship opportunities. Feel free to reach out or explore my work.","የመማር እድሎችን፣ ትብብርን እና የሶፍትዌር ኢንጂነሪንግ Internship እድሎችን እፈልጋለሁ። ለመገናኘት ወይም ሥራዎቼን ለማየት አያመንቱ።"]
     };
+
+    Object.assign(translations, {
+      ".project-description": [
+        [
+          "A book inventory interface presenting book details, reading statuses, and a visual rating system.",
+          "A responsive wireless-headphones product page with feature cards, a demonstration video, pricing plans, and an email form.",
+          "A job-portal backend codebase organized around job seekers, employers, job listings, applications, profiles, and administration.",
+          "An Android passenger ride-booking UI/UX prototype with welcome, ride discovery, and ride-selection screens.",
+          "A model-based agent simulation that estimates steps and walking distance from simulated motion readings and stride-length calibration.",
+          "A collection of classical graph-search implementations and notebooks, including BFS, DFS, UCS, Greedy Best-First, and A*.",
+          "A growing collection of JavaScript fundamentals, DOM exercises, algorithms, FreeCodeCamp projects, and small browser applications.",
+          "A collection of web-development exercises focused on semantic HTML, accessible interfaces, and responsive layouts."
+        ],
+        [
+          "የመጽሐፍ ዝርዝሮችን፣ የንባብ ሁኔታን እና የደረጃ አሰጣጥን የሚያሳይ የመጽሐፍ ክምችት ገጽታ።",
+          "የጆሮ ማዳመጫ ምርትን፣ ባህሪያትን፣ የዋጋ እቅዶችን እና የኢሜይል ቅጽን የያዘ Responsive ድረ-ገጽ።",
+          "ሥራ ፈላጊዎችን፣ አሠሪዎችን፣ የሥራ ማስታወቂያዎችን፣ ማመልከቻዎችን እና አስተዳደርን የሚያካትት የሥራ ፍለጋ ስርዓት Backend ኮድ።",
+          "የመነሻ፣ ጉዞ ፍለጋ እና የጉዞ ምርጫ ገጾችን የያዘ የAndroid ተሳፋሪ የጉዞ ማስያዣ UI/UX ናሙና።",
+          "ከተመሳሰሉ የእንቅስቃሴ መረጃዎች የእርምጃ ብዛትን እና የእግር ጉዞ ርቀትን የሚገምት በModel-based Agent የተመሰረተ ማስመሰያ።",
+          "BFS፣ DFS፣ UCS፣ Greedy Best-First እና A* የመሳሰሉ የGraph Search አልጎርይዝሞችን የሚያካትት ስብስብ።",
+          "የJavaScript መሠረቶችን፣ DOM ልምምዶችን፣ አልጎርይዝሞችን፣ FreeCodeCamp ፕሮጀክቶችን እና ቀላል የBrowser መተግበሪያዎችን የያዘ ስብስብ።",
+          "በSemantic HTML፣ ተደራሽ የተጠቃሚ ገጽታዎች እና Responsive Layouts ላይ ያተኮሩ የWeb Development ልምምዶች።"
+        ]
+      ],
+      ".project-number": [
+        ["WEB PROJECT · 01","WEB PROJECT · 02","BACKEND PROJECT · 03","ACADEMIC PROJECT · 04","AI PROJECT · 05","ALGORITHM PROJECT · 06","LEARNING REPOSITORY · 07","PRACTICE REPOSITORY · 08"],
+        ["የድር ፕሮጀክት · 01","የድር ፕሮጀክት · 02","የBackend ፕሮጀክት · 03","የትምህርት ፕሮጀክት · 04","የAI ፕሮጀክት · 05","የአልጎርይዝም ፕሮጀክት · 06","የመማሪያ ሪፖዚቶሪ · 07","የልምምድ ሪፖዚቶሪ · 08"]
+      ],
+      ".project-link": [
+        ["View source code ↗","View source code ↗","Explore repository ↗","Explore project ↗","Explore project ↗","Explore repository ↗","Explore repository ↗","Explore repository ↗"],
+        ["የምንጭ ኮዱን ይመልከቱ ↗","የምንጭ ኮዱን ይመልከቱ ↗","ሪፖዚቶሪውን ይመልከቱ ↗","ፕሮጀክቱን ይመልከቱ ↗","ፕሮጀክቱን ይመልከቱ ↗","ሪፖዚቶሪውን ይመልከቱ ↗","ሪፖዚቶሪውን ይመልከቱ ↗","ሪፖዚቶሪውን ይመልከቱ ↗"]
+      ],
+      ".resume-label": [
+        ["EDUCATION","PRACTICAL EXPERIENCE","DEVELOPMENT FOCUS"],
+        ["ትምህርት","ተግባራዊ ልምድ","የእድገት ትኩረት"]
+      ],
+      ".resume-role": [
+        ["B.Sc. Software Engineering · Ethiopia","Software development practice","Learning and building"],
+        ["የሶፍትዌር ኢንጂነሪንግ ዲግሪ · ኢትዮጵያ","የሶፍትዌር ልምምድ","መማር እና መገንባት"]
+      ],
+      ".resume-copy": [
+        ["Expected graduation: 2020 E.C. (2027/2028 G.C.)","Coursework includes programming, data structures and algorithms, database systems, artificial intelligence, software design, and software engineering principles.","Hands-on practice through individual and collaborative academic work, including responsive websites, a Java/Spring Boot job-portal codebase, Android UI prototyping, and Python algorithm implementations.","Focused on strengthening frontend fundamentals, learning backend development, and applying sound software engineering practices to build accessible, maintainable applications."],
+        ["የሚጠበቀው የምረቃ ጊዜ፦ 2020 ዓ.ም. (2027/2028 G.C.)","በፕሮግራሚንግ፣ Data Structures and Algorithms፣ Database Systems፣ Artificial Intelligence፣ Software Design እና Software Engineering ላይ የተመሰረቱ ትምህርቶች።","በግልና በቡድን የትምህርት ሥራዎች የተገኘ ተግባራዊ ልምምድ፤ Responsive ድረ-ገጾች፣ Java/Spring Boot የሥራ ፍለጋ ስርዓት፣ Android UI ናሙና እና Python አልጎርይዝሞችን ያካትታል።","የFrontend መሠረቶችን ማጠናከር፣ Backend Development መማር እና ተደራሽና ለማሻሻል ቀላል የሆኑ መተግበሪያዎችን ለመገንባት ጥራት ያለው የሶፍትዌር አሰራር መተግበር።"]
+      ],
+      ".skill-group h3": [
+        ["Frontend Development","Programming & Backend","Databases & Tools","Currently Developing"],
+        ["Frontend Development","ፕሮግራሚንግ እና Backend","ዳታቤዝ እና መሣሪያዎች","በአሁኑ ጊዜ እያዳበርኩ ያለሁት"]
+      ],
+      ".certificate-description": [
+        ["Developer Certification covering responsive web design fundamentals and practical web development projects.","Verified certificate of Nanodegree program completion."],
+        ["የResponsive Web Design መሠረቶችን እና ተግባራዊ የWeb Development ፕሮጀክቶችን የሚያካትት የገንቢ ሰርተፊኬት።","የNanodegree ፕሮግራም ማጠናቀቂያ የተረጋገጠ ሰርተፊኬት።"]
+      ],
+      ".certificate-note": [
+        ["e-SHE certificate IDs are shown as printed on the certificates. Individual online verification links were not provided.","የe-SHE ሰርተፊኬት መለያ ቁጥሮች በሰርተፊኬቶቹ ላይ እንደተጻፉ ቀርበዋል። የግል የOnline ማረጋገጫ አገናኞች አልተሰጡም።"]
+      ],
+      ".more-projects": ["Want to see more? Explore all my GitHub repositories ↗","ተጨማሪ ለማየት ይፈልጋሉ? ሁሉንም የGitHub ሪፖዚቶሪዎቼን ይመልከቱ ↗"],
+      ".resume-actions p": ["Interested in my background? Contact me for my latest CV or connect with me on LinkedIn.","ስለ ትምህርቴና ልምዴ ፍላጎት አለዎት? የቅርብ ጊዜ CV ለመጠየቅ ወይም በLinkedIn ለመገናኘት ይችላሉፁ።"]
+    });
+
     function setLanguage(lang) {
       document.documentElement.lang = lang;
       document.documentElement.dir = "ltr";
