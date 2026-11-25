@@ -1452,3 +1452,19 @@ body {
     gap: 6px;
   }
 }
+
+
+/* Align the full navigation group toward the right, beside the controls. */
+@media (min-width: 651px) {
+  .navbar {
+    justify-content: flex-start;
+  }
+
+  .nav-links {
+    margin-left: auto;
+  }
+
+  .nav-controls {
+    margin-left: 0;
+  }
+}
