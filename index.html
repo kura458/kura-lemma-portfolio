@@ -539,6 +539,73 @@
       setTheme(document.documentElement.dataset.theme === "dark" ? "light" : "dark", true);
     });
 
+    // Let visitors choose how to view a certificate: embedded preview or a new tab.
+    const certificateDialog = document.createElement("dialog");
+    certificateDialog.className = "certificate-viewer-dialog";
+    certificateDialog.setAttribute("aria-labelledby", "certificate-viewer-title");
+    certificateDialog.innerHTML = `
+      <div class="certificate-choice" id="certificate-choice">
+        <button class="certificate-viewer-close" type="button" aria-label="Close certificate options">×</button>
+        <p class="eyebrow">CERTIFICATE VIEWER</p>
+        <h2 id="certificate-viewer-title">How would you like to view this certificate?</h2>
+        <div class="certificate-choice-actions">
+          <button class="button primary-button" type="button" id="certificate-preview-choice">Inside this portfolio</button>
+          <button class="button secondary-button" type="button" id="certificate-tab-choice">Open in a new browser tab</button>
+        </div>
+      </div>
+      <div class="certificate-preview" id="certificate-preview" hidden>
+        <div class="certificate-preview-toolbar">
+          <h2>Certificate preview</h2>
+          <div>
+            <a class="button secondary-button" id="certificate-fallback-link" href="#" target="_blank" rel="noopener noreferrer">Open in new tab ↗</a>
+            <button class="button secondary-button" type="button" id="certificate-preview-close">Close preview</button>
+          </div>
+        </div>
+        <iframe id="certificate-frame" title="Full certificate preview" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        <p class="certificate-frame-note">If the certificate provider does not allow an embedded preview, use “Open in new tab” above.</p>
+      </div>`;
+    document.body.append(certificateDialog);
+    let selectedCertificateUrl = "";
+    const certificateChoice = certificateDialog.querySelector("#certificate-choice");
+    const certificatePreview = certificateDialog.querySelector("#certificate-preview");
+    const certificateFrame = certificateDialog.querySelector("#certificate-frame");
+    const certificateFallback = certificateDialog.querySelector("#certificate-fallback-link");
+    function closeCertificateDialog() {
+      certificateDialog.close();
+      certificateFrame.src = "about:blank";
+      certificateChoice.hidden = false;
+      certificatePreview.hidden = true;
+    }
+    document.querySelectorAll(".certificate-link").forEach((link) => {
+      link.addEventListener("click", (event) => {
+        event.preventDefault();
+        selectedCertificateUrl = link.href;
+        certificateFallback.href = selectedCertificateUrl;
+        certificateChoice.hidden = false;
+        certificatePreview.hidden = true;
+        certificateDialog.showModal();
+      });
+    });
+    certificateDialog.querySelector(".certificate-viewer-close").addEventListener("click", closeCertificateDialog);
+    certificateDialog.querySelector("#certificate-preview-choice").addEventListener("click", () => {
+      certificateChoice.hidden = true;
+      certificatePreview.hidden = false;
+      certificateFrame.src = selectedCertificateUrl;
+    });
+    certificateDialog.querySelector("#certificate-tab-choice").addEventListener("click", () => {
+      window.open(selectedCertificateUrl, "_blank", "noopener,noreferrer");
+      closeCertificateDialog();
+    });
+    certificateDialog.querySelector("#certificate-preview-close").addEventListener("click", closeCertificateDialog);
+    certificateDialog.addEventListener("click", (event) => {
+      if (event.target === certificateDialog) closeCertificateDialog();
+    });
+    certificateDialog.addEventListener("close", () => {
+      certificateFrame.src = "about:blank";
+      certificateChoice.hidden = false;
+      certificatePreview.hidden = true;
+    });
+
     const contactForm = document.querySelector("#project-contact-form");
     contactForm?.addEventListener("submit", (event) => {
       event.preventDefault();
