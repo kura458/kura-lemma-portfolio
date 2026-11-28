@@ -2049,3 +2049,66 @@ section:target {
   .certificate-group-grid { grid-template-columns: 1fr; }
   .certificate-group { padding: 19px; }
 }
+
+
+/* Certificate viewer: visitor-selected embedded preview or new browser tab */
+.certificate-viewer-dialog {
+  width: min(96vw, 1240px);
+  max-width: none;
+  height: min(94vh, 1000px);
+  max-height: 94vh;
+  padding: 0;
+  overflow: hidden;
+  color: var(--color-text);
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  box-shadow: 0 24px 80px rgb(0 0 0 / 35%);
+}
+.certificate-viewer-dialog::backdrop { background: rgb(2 6 23 / 78%); backdrop-filter: blur(4px); }
+.certificate-choice {
+  position: relative;
+  display: grid;
+  align-content: center;
+  gap: 22px;
+  min-height: 300px;
+  height: 100%;
+  padding: clamp(24px, 5vw, 56px);
+  text-align: center;
+}
+.certificate-choice h2 { max-width: 680px; margin: 0 auto; color: var(--color-heading); }
+.certificate-choice-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; }
+.certificate-viewer-close {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  width: 42px;
+  height: 42px;
+  border: 0;
+  border-radius: 50%;
+  color: var(--color-heading);
+  background: var(--color-card);
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+.certificate-preview { display: flex; flex-direction: column; height: 100%; }
+.certificate-preview-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 18px;
+  border-bottom: 1px solid var(--color-border);
+}
+.certificate-preview-toolbar h2 { margin: 0; font-size: 1.1rem; color: var(--color-heading); }
+.certificate-preview-toolbar > div { display: flex; flex-wrap: wrap; gap: 8px; }
+.certificate-preview-toolbar .button { padding: 9px 13px; font-size: .85rem; }
+#certificate-frame { display: block; flex: 1; width: 100%; min-height: 0; border: 0; background: white; }
+.certificate-frame-note { margin: 0; padding: 8px 14px; color: var(--color-muted); font-size: .8rem; text-align: center; }
+@media (max-width: 600px) {
+  .certificate-viewer-dialog { width: 100vw; height: 100dvh; max-height: 100dvh; margin: 0; border-radius: 0; }
+  .certificate-preview-toolbar { align-items: flex-start; }
+  .certificate-preview-toolbar > div { width: 100%; }
+  .certificate-preview-toolbar .button { flex: 1; text-align: center; }
+}
