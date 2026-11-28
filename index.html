@@ -549,7 +549,7 @@
         <p class="eyebrow">CERTIFICATE VIEWER</p>
         <h2 id="certificate-viewer-title">How would you like to view this certificate?</h2>
         <div class="certificate-choice-actions">
-          <button class="button primary-button" type="button" id="certificate-preview-choice">Inside this portfolio</button>
+          <button class="button primary-button" type="button" id="certificate-preview-choice">View certificate here</button>
           <button class="button secondary-button" type="button" id="certificate-tab-choice">Open in a new browser tab</button>
         </div>
       </div>
@@ -588,9 +588,9 @@
     });
     certificateDialog.querySelector(".certificate-viewer-close").addEventListener("click", closeCertificateDialog);
     certificateDialog.querySelector("#certificate-preview-choice").addEventListener("click", () => {
-      certificateChoice.hidden = true;
-      certificatePreview.hidden = false;
-      certificateFrame.src = selectedCertificateUrl;
+      // Open the provider's original certificate in this same tab.
+      // Many certificate providers block iframe embedding for security.
+      window.location.assign(selectedCertificateUrl);
     });
     certificateDialog.querySelector("#certificate-tab-choice").addEventListener("click", () => {
       window.open(selectedCertificateUrl, "_blank", "noopener,noreferrer");
